@@ -1,5 +1,8 @@
 package repository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ClientesRepository {
+import models.Cliente;
+
+public interface ClientesRepository extends CrudRepository<Cliente,Integer>{
 
 }
