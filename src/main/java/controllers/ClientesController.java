@@ -4,6 +4,7 @@ package controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import models.Cliente;
 import services.ClientesServices;
 
-
+@Controller
+@RequestMapping("/clientes")
 public class ClientesController {
 	@Autowired 
 	private ClientesServices servicio;
@@ -25,15 +27,15 @@ public class ClientesController {
 		
 		List <Cliente> listaCliente= servicio.buscarTodo();
 		System.out.println("LISTACLIENTE: " + listaCliente);
-		model.addAttribute("listaPeliculas", listaCliente);
-		return "/moduloPeliculas/listarTodo";
+		model.addAttribute("LISTACLIENTE", listaCliente);
+		return "/modules/listarTodo";
 	}
 	
 	@RequestMapping("/nuevo")
 	public String nuevoCliente(Model model) {
 		Cliente cliente = new Cliente ();
 		model.addAttribute("cliente",cliente);
-		return "/moduleCliente/nuevoCliente";	
+		return "/modules/nuevoCliente";	
 	}
 	
 	@RequestMapping(value ="/guardar", method= RequestMethod.POST)
@@ -45,7 +47,7 @@ public class ClientesController {
 	
 	 @RequestMapping(value ="/actualizar/{id}")
 	public ModelAndView editarPelicula(@PathVariable(name="id") int id) {
-		ModelAndView mav = new ModelAndView("/moduleCliente/editarCliente");
+		ModelAndView mav = new ModelAndView("/module/editarCliente");
 		Cliente cliente = servicio.buscarPorId(id);
 		mav.addObject("cliente",cliente);
 		return mav;
