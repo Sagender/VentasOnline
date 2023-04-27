@@ -14,20 +14,20 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 
 @NamedQueries({
-	@NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-	@NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE idCliente = :idCliente"),
-	@NamedQuery(name = "Cliente.findByNameCliente", query = "SELECT c FROM Cliente c WHERE c.nameCliente = :nameCliente"),
-	@NamedQuery(name = "Cliente.findByDireccion", query = "SELECT c FROM Cliente c WHERE c.direccion = :direccion"),
-	@NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Email c Cliente WHERE c.email = :email")
+	@NamedQuery(name = "Clientes.findAll", query = "SELECT c FROM Clientes c"),
+	@NamedQuery(name = "Clientes.findByidcliente", query = "SELECT c FROM Clientes c WHERE idcliente = :idCliente"),
+	@NamedQuery(name = "Clientes.findBynombre", query = "SELECT c FROM Clientes c WHERE c.nombre = :nameCliente"),
+	@NamedQuery(name = "Clientes.findBydireccion", query = "SELECT c FROM Clientes c WHERE c.direccion = :direccion"),
+	@NamedQuery(name = "Clientes.findByemail", query = "SELECT c FROM Clientes c WHERE c.email = :email")
 	
 })
 
 public class Cliente implements Serializable{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1l;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)

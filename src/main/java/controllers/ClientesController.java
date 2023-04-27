@@ -26,8 +26,8 @@ public class ClientesController {
 	public String listarCliente (Model model) {
 		
 		List <Cliente> listaCliente= servicio.buscarTodo();
-		System.out.println("LISTACLIENTE: " + listaCliente);
-		model.addAttribute("LISTACLIENTE", listaCliente);
+		System.out.println("LISTA DE CLIENTES: " + listaCliente);
+		model.addAttribute("listaCliente", listaCliente);
 		return "/modules/listarTodo";
 	}
 	
@@ -41,7 +41,7 @@ public class ClientesController {
 	@RequestMapping(value ="/guardar", method= RequestMethod.POST)
 	public String crearCliente(@ModelAttribute("cliente") Cliente cliente) {
 		    servicio.crear(cliente);
-		    return "redirect:/cliente/listarTodo";
+		    return "redirect:/clienteS/listarTodo";
 		
 	}
 	
