@@ -1,4 +1,4 @@
-package controllers;
+/*package controllers;
 
 
 import java.util.List;
@@ -57,4 +57,4 @@ public class ClientesController {
 		return "redirect:/cliente/listarTodo";
 	}
 
-}
+}*/
